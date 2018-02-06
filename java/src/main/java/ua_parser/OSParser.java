@@ -16,6 +16,8 @@
 
 package ua_parser;
 
+import java.io.Serializable;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
@@ -27,7 +29,10 @@ import java.util.Map;
  *
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
-public class OSParser {
+public class OSParser implements Serializable{
+
+  private static final long serialVersionUID = 7526472295622776149L;
+
   private final List<OSPattern> patterns;
 
   public OSParser(List<OSPattern> patterns) {
@@ -69,7 +74,9 @@ public class OSParser {
                          configMap.get("os_v2_replacement")));
   }
 
-  protected static class OSPattern {
+  protected static class OSPattern implements Serializable{
+    private static final long serialVersionUID = 7526472295622776141L;
+
     private final Pattern pattern;
     private final String osReplacement, v1Replacement, v2Replacement;
 

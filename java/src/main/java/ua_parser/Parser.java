@@ -16,6 +16,7 @@
 
 package ua_parser;
 
+import java.io.Serializable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -29,7 +30,9 @@ import org.yaml.snakeyaml.constructor.SafeConstructor;
  *
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
-public class Parser {
+public class Parser implements Serializable{
+  
+  private static final long serialVersionUID = 7526471155622776147L;
 
   private static final String REGEX_YAML_PATH = "/ua_parser/regexes.yaml";
   private UserAgentParser uaParser;

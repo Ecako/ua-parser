@@ -16,6 +16,8 @@
 
 package ua_parser;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +29,10 @@ import java.util.regex.Pattern;
  *
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
-public class UserAgentParser {
+public class UserAgentParser implements Serializable{
+
+  private static final long serialVersionUID = 7526472295622776146L;
+
   private final List<UAPattern> patterns;
 
   public UserAgentParser(List<UAPattern> patterns) {
@@ -69,7 +74,9 @@ public class UserAgentParser {
                          configMap.get("v2_replacement")));
   }
 
-  protected static class UAPattern {
+  protected static class UAPattern implements Serializable{
+
+    private static final long serialVersionUID = 7526472295622776137L;
     private final Pattern pattern;
     private final String familyReplacement, v1Replacement, v2Replacement;
 

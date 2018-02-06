@@ -16,6 +16,7 @@
 
 package ua_parser;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,9 +28,11 @@ import java.util.regex.Pattern;
  *
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
-public class DeviceParser {
+public class DeviceParser implements Serializable{
   List<DevicePattern> patterns;
 
+  private static final long serialVersionUID = 7526472295622776148L;
+  
   public DeviceParser(List<DevicePattern> patterns) {
     this.patterns = patterns;
   }
@@ -67,7 +70,10 @@ public class DeviceParser {
                              configMap.get("device_replacement"));
   }
 
-  protected static class DevicePattern {
+  protected static class DevicePattern implements Serializable{
+
+    private static final long serialVersionUID = 7526472295622776145L;
+
     private final Pattern pattern;
     private final String familyReplacement;
 
